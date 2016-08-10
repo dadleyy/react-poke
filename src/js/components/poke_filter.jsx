@@ -21,7 +21,22 @@ define([
 
     render() {
       return (
-        <div className="clearfix poke-filter__menu padding-tb-5 padding-lr-8 bg-black-lighten-8">
+        <div className="clearfix poke-filter__menu">
+          <div className="poke-filter__group-title poke-filter__group-title--first">
+            <h6 className="fg-white">Type</h6>
+          </div>
+          <div className="poke-filter__filter-group">
+            <a className="poke-filter__type-option">All</a>
+            <a className="poke-filter__type-option">Bug</a>
+            <a className="poke-filter__type-option">Fairy</a>
+            <a className="poke-filter__type-option">Fire</a>
+            <a className="poke-filter__type-option">Ghost</a>
+          </div>
+          <div className="poke-filter__group-title">
+            <h6 className="fg-white">Level</h6>
+          </div>
+          <div className="poke-filter__filter-group poke-filter__filter-group--last">
+          </div>
         </div>
       );
     }

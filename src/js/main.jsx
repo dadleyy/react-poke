@@ -2,8 +2,9 @@ require([
   "routes",
   "router",
   "services/popups",
-  "services/notes"
-], function(routes, router, Popups, Notes) {
+  "services/notes",
+  "services/viewport"
+], function(routes, router, Popups, Notes, Viewport) {
 
   function e(id) {
     return document.getElementById(id);
@@ -11,6 +12,7 @@ require([
 
   Notes.mount(e("notes"));
   Popups.mount(e("popups"));
+  Viewport.bind();
 
   router.init(routes);
 
