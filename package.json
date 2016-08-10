@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dadleyy/reactmon.git"
+    "url": "git+https://github.com/dadleyy/react-poke.git"
   },
   "author": "Danny Hadley <dadleyy@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dadleyy/reactmon/issues"
+    "url": "https://github.com/dadleyy/react-poke/issues"
   },
-  "homepage": "https://github.com/dadleyy/reactmon#readme",
+  "homepage": "https://github.com/dadleyy/react-poke",
   "dependencies": {
     "json5": "^0.5.0"
   },
