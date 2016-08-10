@@ -1,0 +1,50 @@
+{
+  "pokemon": [{
+    "name": "Clefairy",
+    "type": "fairy",
+    "description": "This impish Pokémon is friendly and peaceful. It is believed to live inside Mt. Moon, although very few have ever been seen by humans.",
+    "level": 23,
+    "imageUrl": "/assets/img/pokemon-clefairy-8bit.png",
+    "moves": [{ "name": "Disarming Voice", "type": "fairy" },  {"name": "Double Slap", "type": "normal"}]
+  },
+  {
+    "name": "Gengar",
+    "type": "ghost",
+    "description": "Gengar, the Shadow Pokémon. Gengar hides in the shadows. If a Gengar is nearby, it is said to feel ten degrees colder than normal.",
+    "level": 32,
+    "imageUrl": "/assets/img/pokemon-gengar-8bit.png",
+    "moves": [{ "name": "Lick", "type": "ghost" },  { "name": "Shadow Punch", "type": "ghost"}]
+  },
+  {
+    "name": "Growlithe",
+    "type": "fire",
+    "description": "Growlithe, a Puppy Pokémon of pleasant demeanor and great diligence. It drives enemies away with barks and bites.",
+    "level": 18,
+    "imageUrl": "/assets/img/pokemon-growlithe-8bit.gif",
+    "moves": [{ "name": "Bite", "type": "dark" },  { "name": "Ember", "type": "fire"}]
+  },
+  {
+    "name": "Gyarados",
+    "type": "water",
+    "description": "Rarely seen in the wild. Huge and vicious, it is capable of destroying entire cities in a rage. Can fire a Hyper Beam from its mouth.",
+    "level": 26,
+    "imageUrl": "/assets/img/pokemon-gyarados.png",
+    "moves": [{ "name": "Aqua Tail", "type": "water" },  { "name": "Hydro Pump", "type": "water"}]
+  },
+  {
+    "name": "Kadabra",
+    "type": "psychic",
+    "description": "Kadabra, a Psychic Pokémon. The evolved form of Abra. It employs powerful telekinetic attacks.",
+    "level": 24,
+    "imageUrl": "/assets/img/pokemon-kadabra.png",
+    "moves": [{ "name": "Confusion", "type": "psychic" },  { "name": "Psybeam", "type": "psychic"}]
+  },
+  {
+    "name": "Scyther",
+    "type": "bug",
+    "description": "Its claws are sharp as swords, and it is a powerful flyer. This Pokémon is rarely seen by humans and almost never captured.",
+    "level": 18,
+    "imageUrl": "/assets/img/pokemon-scyther.png",
+    "moves": [{"name": "Fury Cutter", "type": "bug" },  {"name": "Razor Wind", "type": "normal"}]
+  }]
+}

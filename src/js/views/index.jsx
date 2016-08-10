@@ -1,7 +1,8 @@
 define([
   "components/header",
-  "components/poke_filter"
-], function(Header, Filter) {
+  "components/poke_filter",
+  "components/poke_list"
+], function(Header, Filter, List) {
 
   function render() {
     let {delegate} = this.props.resolved || {};
@@ -13,6 +14,9 @@ define([
             <Filter delegate={delegate} />
           </div>
         </Header>
+        <div className="padding-tb-50 clearfix row poke-list">
+          <List classes="poke-list" delegate={delegate} />
+        </div>
       </div>
     );
   }

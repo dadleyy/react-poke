@@ -1,0 +1,53 @@
+.poke-label
+  @extend .padding-lr-4
+  @extend .radius-3
+  @extend .border-1
+  /* should definitely have turned this into a mixin but ran out
+     of time.
+   */
+  &[data-type="bug"]
+    background: $color-bug
+    border-color: darken($color-bug, 40)
+
+  &[data-type="bug"] p
+    color: darken($color-bug, 40)
+
+  &[data-type="psychic"]
+    background: $color-psychic
+    border-color: darken($color-psychic, 40)
+
+  &[data-type="psychic"] p
+    color: darken($color-psychic, 40)
+
+  &[data-type="fire"]
+    background: $color-fire
+    border-color: darken($color-fire, 40)
+
+  &[data-type="fire"] p
+    color: darken($color-fire, 40)
+
+  &[data-type="water"]
+    background: $color-water
+    border-color: darken($color-water, 40)
+
+  &[data-type="water"] p
+    color: darken($color-water, 40)
+
+  &[data-type="ghost"]
+    background: $color-ghost
+    border-color: darken($color-ghost, 40)
+
+  &[data-type="ghost"] p
+    color: darken($color-ghost, 40)
+
+  &[data-type="fairy"]
+    background: $color-fairy
+    border-color: darken($color-fairy, 40)
+
+  &[data-type="fairy"] p
+    color: darken($color-fairy, 40)
+
+.poke-label p
+  @extend .ff-pixel
+  font-size: 1.4rem
+  line-height: 1.4rem

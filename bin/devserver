@@ -5,6 +5,8 @@
 const path    = require("path");
 const express = require("express");
 const program = require("commander");
+const fs      = require("fs");
+const json5   = require("json5");
 const proxy   = require('express-http-proxy');
 
 (function() {
@@ -17,9 +19,14 @@ const proxy   = require('express-http-proxy');
   let app    = express();
   let assets = path.join(__dirname, "../dist");
   let index  = path.join(__dirname, "../dist/index.html");
+  let data_f = path.join(__dirname, "../pokemon.json");
 
   // serve the js, css from the assets dir
   app.use(express.static(assets));
+
+  app.get("/api/pokemon", function(req, res, next) {
+    res.sendFile(data_f);
+  });
 
   // send the same index html for every request - this is a single
   // page application

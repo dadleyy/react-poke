@@ -6,10 +6,13 @@ define([
     let displayName = "list-view";
 
     function render() {
-      let {delegate} = this.props;
+      let {delegate, classes} = this.props;
       let items = delegate.items();
       let nodes = [];
       let count = items.length;
+
+      if(!classes)
+        classes = "list-view clearfix";
 
       for(let i = 0; i < count; i++) {
         let item = items[i];
@@ -17,7 +20,7 @@ define([
       }
 
       return (
-        <div className="list-view clearfix">{nodes}</div>
+        <div className={classes}>{nodes}</div>
       );
     }
 
