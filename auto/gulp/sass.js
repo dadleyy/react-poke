@@ -19,7 +19,7 @@ module.exports = function(gulp) {
   });
 
   gulp.task("sass:release", ["clean:sass"], function() {
-    let outputStyle = "condensed";
+    let outputStyle = "compressed";
     return gulp.src(source)
       .pipe(sass({outputStyle, includePaths}).on("error", sass.logError))
       .pipe(gulp.dest(destination));
