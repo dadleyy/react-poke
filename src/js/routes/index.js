@@ -1,10 +1,17 @@
 define([
 ], function() {
 
-  function resolve() {
+  function resolve(Pokemon) {
     let delegate = {};
-    return Q.resolve({delegate});
+    console.log(Pokemon);
+    let {promise, resolve, reject} = Q.defer();
+    console.log("loading");
+    return promise;
   }
+
+  resolve.$inject = [
+    "resources/pokemon"
+  ];
 
   let path = "/";
   let view = "views/index";

@@ -16,5 +16,10 @@ html
         requirejs.config({
           baseUrl: "/assets/js"
         });
+
+        window.ENV = {
+          API_HOME: "#{API_HOME}" || "/api"
+        };
+
         require(["main"]);
       })();

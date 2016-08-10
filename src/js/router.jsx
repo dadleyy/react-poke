@@ -10,7 +10,8 @@ define([
   // @param {object} definition - an object with `resolve`, `view` and `path`
   function route(definition) {
     let {view, resolve, path} = definition;
-    let resolution = null;
+    let resolution   = null;
+    let dependencies = [];
 
     // render
     //
@@ -21,6 +22,7 @@ define([
       let container = document.getElementById("main");
       Notification.remove(note_id);
       ReactDOM.render(<ViewModule resolved={resolution} />, container);
+      note_id = null;
     }
 
     // simple fail here. if any route rejects, or is unable to load the view 
@@ -30,6 +32,7 @@ define([
       console.error(e);
       Notification.remove(note_id);
       page("/error");
+      note_id = null;
     }
 
     // success
@@ -42,13 +45,24 @@ define([
     }
 
     function handler(page_route_context) {
-      note_id = Notification.add("Loading");
-      resolve(page_route_context)
+      if(note_id === null) note_id = Notification.add("Loading");
+
+      resolve.apply(null, dependencies.concat([page_route_context]))
         .then(success)
         .catch(failed);
     }
 
-    return handler;
+    function inject(context) {
+      note_id = Notification.add("Loading");
+
+      require(resolve.$inject, function(...deps) {
+        dependencies = deps;
+        handler(context);
+      });
+    }
+
+    let has_deps = resolve.$inject instanceof Array;
+    return has_deps ? inject : handler;
   }
 
   function init(routes) {
