@@ -9,7 +9,7 @@ module.exports = function(gulp) {
 
   gulp.task("clean:fonts", function() {
     return del([
-      path.join(base, "dist/fonts")
+      path.join(base, "dist/assets/fonts")
     ]);
   });
 

@@ -24,7 +24,7 @@ const proxy   = require('express-http-proxy');
   // send the same index html for every request - this is a single
   // page application
   app.get("*", function(req, res, next) {
-    if(/css|js|ttf/i.test(req.path)) return next();
+    if(/png|gif|css|js|ttf/i.test(req.path)) return next();
     res.sendFile(index);
   });
 
