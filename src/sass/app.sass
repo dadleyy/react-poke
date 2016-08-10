@@ -1,8 +1,10 @@
 @import "base"
 @import "bases"
 
-@import "settings"
 @import "foundation"
+@import "settings"
+
+@import "fonts/pixel"
 
 html, body
   position: relative
@@ -14,6 +16,9 @@ html, body
 
 +color-classes("background", $color-background, "bg")
 +color-classes("tomato", $color-tomato, "tomato")
++color-classes("link", $color-link, "link")
 
 +meyer-reset
 +foundation-grid
+
+@import "generic/typography"

@@ -1,0 +1,61 @@
+.ff-pixel
+  font-family: pixel
+
+.ff-sans
+  font-family: 'Open Sans', sans-serif
+
+.fw-700
+  font-weight: 700
+
+.fw-600
+  font-weight: 600
+
+.fw-400
+  font-weight: 400
+
+.fw-300
+  font-weight: 300
+
+h1, h2, h3, h4, h5, h6, p, code
+  @extend .ff-sans
+  @extend .fw-400
+  font-style: normal
+  margin: 0
+  padding: 0
+
+h1
+  font-size: 3rem
+  
+h2
+  font-size: 2.5rem
+
+h3
+  font-size: 2.2rem
+
+h4
+  font-size: 1.8rem
+
+h5
+  font-size: 1.5rem
+
+h6
+  font-size: 1.2rem
+
+p
+  font-size: 1.0rem
+
+em
+  @extend .fw-300
+
+strong
+  @extend .fw-600
+
+b
+  @extend .fw-700
+
+a
+  @extend .fg-link
+  text-decoration: none
+
+.fs-5
+  font-size: 5rem

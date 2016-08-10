@@ -3,7 +3,7 @@ define([
 
   function render() {
     return (
-      <div className="row padding-tb-20">
+      <div className="">
       </div>
     );
   }
