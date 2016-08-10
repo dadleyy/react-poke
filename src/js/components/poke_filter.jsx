@@ -1,17 +1,13 @@
 define([
+  "services/poke_types",
   "components/hoc/action_menu",
   "components/range_slider"
-], function(ActionMenu, RangeSlider) {
+], function(TYPES, ActionMenu, RangeSlider) {
 
-  const TYPE_FILTERS = [
-    {name: "All",     key: 1},
-    {name: "Bug",     key: 2},
-    {name: "Fire",    key: 3},
-    {name: "Fairy",   key: 4},
-    {name: "Ghost",   key: 5},
-    {name: "Psychic", key: 6},
-    {name: "Water",   key: 7}
-  ];
+  function ucFirst(str) {
+    let [first, second] = [str.substr(0,1), str.substr(1)];
+    return [first.toUpperCase(), second.toLowerCase()].join("");
+  }
 
   let FilterButton = React.createClass({
 
@@ -32,15 +28,21 @@ define([
 
     select() {
       let {type, delegate} = this.props;
-      console.log(type.key);
+      delegate.toggleType(type.key);
     },
 
     render() {
-      let {type} = this.props;
+      let {delegate, type} = this.props;
+      let {type_filters} = delegate;
+      let selected = type_filters.indexOf(type.key) !== -1;
+      let button_class = "rounded-button";
+
+      if(selected)
+        button_class = [button_class, "rounded-button--active"].join(" ");
 
       return (
         <div className="poke-filter__type-option" key={type.key}>
-          <a onClick={this.select} className="rounded-button rounded-button-active">{type.name}</a>
+          <a onClick={this.select} className={button_class}>{ucFirst(type.name)}</a>
         </div>
       );
     }
@@ -53,12 +55,29 @@ define([
       console.log("whoa");
     },
 
+    componentWillUnmount() {
+      let {delegate} = this.props;
+      let {listener_id} = this.state;
+      delegate.off(listener_id);
+    },
+
+    componentDidMount() {
+      let {delegate} = this.props;
+      let render = this.forceUpdate.bind(this);
+      let listener_id = delegate.on("filtered", render);
+      this.setState({listener_id});
+    },
+
     render() {
       let {delegate} = this.props;
-      let type_options = [];
+      let all = {name: "All", key: -1};
 
-      for(let i = 0, c = TYPE_FILTERS.length; i < c; i++) {
-        let type = TYPE_FILTERS[i];
+      // special filter type - all
+      let type_options = [<TypeFilter delegate={delegate} type={all} key={-1} />];
+
+      for(let name in TYPES) {
+        let key = TYPES[name]
+        let type = {name, key};
         type_options.push(<TypeFilter delegate={delegate} type={type} key={type.key} />);
       }
 

@@ -17,7 +17,6 @@ module.exports = function(gulp) {
     path.join(base, "bower_components/q/q.js"),
     path.join(base, "bower_components/page/page.js"),
     path.join(base, "bower_components/flyby/flyby.js"),
-    path.join(base, "bower_components/moment/moment.js"),
     path.join(base, "bower_components/react/react.js"),
     path.join(base, "bower_components/react/react-dom.js"),
     path.join(base, "bower_components/requirejs/require.js")
@@ -27,7 +26,6 @@ module.exports = function(gulp) {
     path.join(base, "bower_components/q/q.js"),
     path.join(base, "bower_components/page/page.js"),
     path.join(base, "bower_components/flyby/flyby.js"),
-    path.join(base, "bower_components/moment/moment.js"),
     path.join(base, "bower_components/react/react.min.js"),
     path.join(base, "bower_components/react/react-dom.min.js"),
     path.join(base, "bower_components/requirejs/require.js")
