@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+"use strict";
+
+const path    = require("path");
+const express = require("express");
+const program = require("commander");
+const proxy   = require('express-http-proxy');
+
+(function() {
+
+  program
+    .option("-p, --port <port>", "the port for express to listen on, defaults to 8080")
+    .parse(process.argv);
+
+  let port   = program.port || 8080;
+  let app    = express();
+  let assets = path.join(__dirname, "../dist");
+  let index  = path.join(__dirname, "../dist/index.html");
+
+  // serve the js, css from the assets dir
+  app.use(express.static(assets));
+
+  // send the same index html for every request - this is a single
+  // page application
+  app.get("*", function(req, res, next) {
+    if(/css|js/i.test(req.path)) return next();
+    res.sendFile(index);
+  });
+
+  app.listen(port);
+  process.stdout.write(`listening on port ${port}\n`);
+
+})();
