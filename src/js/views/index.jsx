@@ -4,11 +4,13 @@ define([
 ], function(Header, Filter) {
 
   function render() {
+    let {delegate} = this.props.resolved || {};
+
     return (
       <div className="clearfix">
         <Header>
           <div className="float-right">
-            <Filter />
+            <Filter delegate={delegate} />
           </div>
         </Header>
       </div>

@@ -22,7 +22,10 @@ define([
         placement.left = bounding.left;
       }
 
-      let popup = Popups.open(<PopupComponent />, placement);
+      // open the popup component with all of the props that were given to us
+      let popup = Popups.open(<PopupComponent {...this.props} />, placement);
+
+      // update our state with the popup id so we may close it on unmount
       this.setState({popup});
     }
 

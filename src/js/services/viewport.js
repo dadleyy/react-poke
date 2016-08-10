@@ -26,7 +26,6 @@ define([
 
   function trigger(event) {
     return function handler(e) {
-      console.log(`handling ${event}`);
       let count = listeners.length;
       for(let i = 0; i < count; i++) {
         let l = listeners[i];

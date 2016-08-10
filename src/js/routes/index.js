@@ -2,7 +2,8 @@ define([
 ], function() {
 
   function resolve() {
-    return Q.resolve(true);
+    let delegate = {};
+    return Q.resolve({delegate});
   }
 
   let path = "/";
