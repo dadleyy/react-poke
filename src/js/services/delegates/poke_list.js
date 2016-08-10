@@ -71,11 +71,25 @@ define([
     }
 
     items() {
-      let {pokemon} = this;
+      let {pokemon, type_filters} = this;
       let items = [];
 
-      for(let i = 0, count = pokemon.length; i < count; i++) {
-        let poke = pokemon[i];
+      let selecting_all  = type_filters.length === 1 && type_filters[0] === ALL_FILTER_KEY;
+      let selected_types = type_filters.map(function(id) {
+        for(let name in TYPES) {
+          if(TYPES[name] === id) return name.toLowerCase();
+        }
+      });
+
+      function matchesType(poke) {
+        let {type} = poke;
+        return selected_types.indexOf(type.toLowerCase()) !== -1;
+      }
+
+      let filtered = selecting_all ? pokemon : pokemon.filter(matchesType);
+
+      for(let i = 0, count = filtered.length; i < count; i++) {
+        let poke = filtered[i];
         items.push({poke});
       }
 

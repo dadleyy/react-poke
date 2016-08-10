@@ -4,6 +4,19 @@ define([
   "components/poke_list"
 ], function(Header, Filter, List) {
 
+  function componentDidMount() {
+    let {delegate} = this.props.resolved;
+    let render = this.forceUpdate.bind(this);
+    let listener_id = delegate.on("filtered", render);
+    this.setState({listener_id});
+  }
+
+  function componentWillUnmount() {
+    let {delegate} = this.props.resolved;
+    let {listener_id} = this.state;
+    delegate.off(listener_id);
+  }
+
   function render() {
     let {delegate} = this.props.resolved || {};
 
@@ -21,6 +34,6 @@ define([
     );
   }
 
-  return React.createClass({render})
+  return React.createClass({render, componentDidMount, componentWillUnmount})
 
 });

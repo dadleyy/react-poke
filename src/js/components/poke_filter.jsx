@@ -26,9 +26,11 @@ define([
 
   let TypeFilter = React.createClass({
 
-    select() {
+    select(e) {
       let {type, delegate} = this.props;
       delegate.toggleType(type.key);
+      e.preventDefault();
+      return false;
     },
 
     render() {
@@ -52,7 +54,6 @@ define([
   let FilterMenu = React.createClass({
 
     updateRange() {
-      console.log("whoa");
     },
 
     componentWillUnmount() {
