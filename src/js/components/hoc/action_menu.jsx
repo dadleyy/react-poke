@@ -6,6 +6,10 @@ define([
 
   function ActionMenu(ButtonComponent, PopupComponent) {
 
+    function getInitialState() {
+      return {popup: null};
+    }
+
     function componentWillUnmount() {
       Popups.close(this.state.popup);
     }
@@ -37,7 +41,7 @@ define([
       )
     }
 
-    return React.createClass({render, open, componentWillUnmount});
+    return React.createClass({render, open, getInitialState, componentWillUnmount});
   }
 
   return ActionMenu;
