@@ -21,7 +21,7 @@ define([
 
     render() {
       return (
-        <div className="clearfix poke-filter__menu">
+        <div className="clearfix poke-filter__menu padding-tb-5 padding-lr-8 bg-black-lighten-8">
         </div>
       );
     }

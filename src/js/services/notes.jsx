@@ -4,6 +4,7 @@ define([
 
   let opened = [];
   let update = null;
+  let mounted = false;
 
   let NotificationBar = React.createClass({
 
@@ -44,10 +45,6 @@ define([
 
   });
 
-  function container() {
-    return document.getElementById("notes");
-  }
-
   function add(text) {
     let id   = Uuid();
     let note = null;
@@ -74,8 +71,16 @@ define([
     return target_id;
   }
 
-  ReactDOM.render(<NotificationBar />, container());
+  function mount(target) {
+    if(mounted) {
+      console.warning("already mounted the notification engine");
+      return
+    }
 
-  return {add, remove};
+    mounted = true;
+    ReactDOM.render(<NotificationBar />, target)
+  }
+
+  return {add, remove, mount};
 
 });
