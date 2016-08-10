@@ -1,3 +1,51 @@
 .range-slider
   @extend .display-block
   @extend .position-relative
+  @extend .margin-lr-4
+
+.range-slider__text
+  @extend .clearfix
+
+.range-slider__point
+  @extend .display-block
+  @extend .position-absolute
+  @extend .pointer
+  @extend .radius-50
+  @extend .bg-white
+  @extend .border-1
+  @extend .border-color-black-lighten-2
+  top: -3px
+  width: 16px
+  height: 16px
+
+  &:after
+    @extend .bg-black-lighten-20
+    @extend .position-absolute
+    @extend .radius-50
+    content: ""
+    left: 4px
+    top: 4px
+    width: 6px
+    height: 6px
+
+.range-slider__point:first-child
+  left: 0
+
+.range-slider__point:last-child
+  right: 0
+
+.range-slider__label
+  @extend .fg-white-darken-12
+
+.range-slider__label--min
+  @extend .float-left
+
+.range-slider__label--max
+  @extend .float-right
+
+.range-slider__track
+  @extend .position-relative
+  @extend .width-50
+  @extend .bg-black-lighten-20
+  @extend .radius-10
+  height: 10px

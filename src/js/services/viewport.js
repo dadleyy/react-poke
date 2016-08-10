@@ -39,7 +39,11 @@ define([
   function bind() {
     if(bound) { return false; }
     bound = true;
+
     document.addEventListener("click", trigger("click"));
+    document.addEventListener("mousedown", trigger("mousedown"));
+    document.addEventListener("mousemove", trigger("mousemove"));
+    document.addEventListener("mouseup", trigger("mouseup"));
   }
 
   return {on, off, bind};

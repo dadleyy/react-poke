@@ -3,8 +3,10 @@ define([
   "services/viewport"
 ], function(UUID, Viewport) {
 
-  let root = null;
+  let root        = null;
   let open_popups = [];
+  let mouse       = {start: {}, end: {}};
+
   const GUTTER_WIDTH = 100;
 
   function px(amt) {
@@ -85,6 +87,10 @@ define([
     let count  = open_popups.length;
     let target = e.target;
 
+    // if this was a drag event - do nothing
+    if(mouse.start.x !== mouse.end.x || mouse.start.y !== mouse.end.y)
+      return true;
+
     // loop over our open popups closing those that are not associated with this event
     for(let i = 0; i < count; i++) {
       let popup = open_popups[i];
@@ -99,6 +105,14 @@ define([
 
     return true;
   }
+
+  Viewport.on("mousedown", function(e) {
+    mouse.start = {x: e.clientX, y: e.clientY};
+  });
+
+  Viewport.on("mouseup", function(e) {
+    mouse.end = {x: e.clientX, y: e.clientY};
+  });
 
   Viewport.on("click", closeOpen);
 
