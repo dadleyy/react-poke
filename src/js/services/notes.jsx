@@ -2,6 +2,17 @@ define([
   "services/uuid"
 ], function(Uuid) {
 
+  /* Notes service
+   *
+   *
+   * This service allows components, routes, and any other module to add notifications
+   * to the screen. Each call to `add` returns a unique id string similar to the Event
+   * class' `on` function.
+   *
+   * The notifications themselves are then added to the single NotificationBar instance
+   * which gets mounted during application startup.
+   */
+
   let opened = [];
   let update = null;
   let mounted = false;

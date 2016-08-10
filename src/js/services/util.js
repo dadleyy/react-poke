@@ -1,6 +1,11 @@
 define([
 ], function() {
 
+  /* util service
+   *
+   * Contains arbitrary helper functions
+   */
+
   function pad(x, amount) {
     let str = `${x || ""}`;
     while(str.length < amount)

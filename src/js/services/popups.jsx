@@ -3,6 +3,20 @@ define([
   "services/viewport"
 ], function(UUID, Viewport) {
 
+  /* popups service
+   *
+   * Very similar to the Notes services, this module takes care of adding
+   * components to the DOM as popups - fixed-position elements that must
+   * have a higher z-index than the rest of the content.
+   *
+   * Additionally, this service is responsible for closing popups when the
+   * user clicks outside them, making sure the popups remain bounded within
+   * the viewport, etc..
+   *
+   * Like the Event class and the Notes service, addition and removal of popups
+   * is handled through a unique identifier handle.
+   */ 
+
   let root        = null;
   let open_popups = [];
   let mouse       = {start: {}, end: {}};

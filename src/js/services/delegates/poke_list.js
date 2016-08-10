@@ -5,6 +5,18 @@ define([
   "resources/pokemon"
 ], function(TYPES, events, util, Pokemon) {
 
+  /* poke list delegate
+   *
+   * In order to communicate between components (particularly the filters 
+   * and the list), this delegate is created during route resolution and
+   * resolved into the view, which then sends it along to the filter and 
+   * the composed list component (which then sends it along to the action 
+   * menu and subsequently the filter menu itself).
+   *
+   * In this way, even through a non-linear component hierarchy the relevant
+   * components are able to communicate w/ one another.
+   */
+
   const ALL_FILTER_KEY = -1;
 
   class PokeListDelegate extends events.Engine {
@@ -70,6 +82,14 @@ define([
       return promise;
     }
 
+    /* items
+     *
+     * This function is used by the list_view high-order component so that it need not
+     * concern itself with any filtering, and this delegate need not concern itself with
+     * maintaining an "active data set" every time a filter is applied. Instead, any time
+     * the list view is rendered, it asks the delegate for it's current set - a value that
+     * is computed based on it's current state.
+     */
     items() {
       let {pokemon, type_filters} = this;
       let items = [];

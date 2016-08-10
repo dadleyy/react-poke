@@ -2,6 +2,24 @@ define([
   "services/notes"
 ], function(Notification) {
 
+  /* router
+   *
+   * Heavily influence by angularjs, this module defines a routing engine using 
+   * pagejs to handle the url/html5/pushstate logic. Each route defined by the 
+   * application is made up of 3 main things:
+   *
+   * 1. a path - this is the url patter that, when the router sees it, will tell 
+   * the router it is working with this route
+   *
+   * 2. a resolve function - this is a function that allows the route to load in
+   * any arbitrary amount of information before the router attempts to load and 
+   * render the view associate with the route.
+   *
+   * 3. a view - this is a react component that the router will mount onto the 
+   * main view container, sending along the resolved data as properties of the
+   * component.
+   */ 
+
   // scope a variable that will hold our loading notification id
   let note_id = null;
 

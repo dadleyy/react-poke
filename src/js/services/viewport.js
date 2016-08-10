@@ -2,6 +2,21 @@ define([
   "services/uuid"
 ], function(UUID) {
 
+  /* viewport service
+   *
+   * This service binds viewport-level events to the dom so that other
+   * components/modules needing that information may and and remove these
+   * listeners at will; the module binds all of its events at application
+   * startup to handlers that find matching events and call them as needed.
+   * It is likely that there will be events fired that have no active 
+   * listeners, but that is ok.
+   *
+   * The management (addition/removal) of the listeners is handled the same
+   * way as the popup/note/event engines - a unique identifier handler is 
+   * create for each listener.
+   *
+   */
+
   let listeners = [];
   let bound = false;
 
